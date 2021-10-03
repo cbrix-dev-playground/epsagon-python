@@ -14,18 +14,18 @@ VERSION_DEPENDENCIES = {
     'fastapi': (3, 5, 3),
 }
 
-for module_name in os.listdir(os.path.dirname(__file__)):
-    filename, ext = os.path.splitext(module_name)
-    if filename in IGNORE_MODULES or ext not in PYTHON_EXTENSIONS:
-        continue
+# for module_name in os.listdir(os.path.dirname(__file__)):
+#     filename, ext = os.path.splitext(module_name)
+#     if filename in IGNORE_MODULES or ext not in PYTHON_EXTENSIONS:
+#         continue
 
-    # Verify that the loaded module meets the minimum Python version
-    if filename in VERSION_DEPENDENCIES:
-        if sys.version_info < VERSION_DEPENDENCIES[filename]:
-            continue
+#     # Verify that the loaded module meets the minimum Python version
+#     if filename in VERSION_DEPENDENCIES:
+#         if sys.version_info < VERSION_DEPENDENCIES[filename]:
+#             continue
 
-    try:
-        imported = import_module('.{}'.format(filename), __name__)
-        MODULES[filename] = imported
-    except ImportError:
-        pass
+#     try:
+#         imported = import_module('.{}'.format(filename), __name__)
+#         MODULES[filename] = imported
+#     except ImportError:
+#         pass
